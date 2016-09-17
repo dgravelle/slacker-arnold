@@ -8,7 +8,7 @@ module.exports = [
     "Let off some steam, Bennett",
     "I'm the party pooper",
     "Put the cookie down! NOW!",
-    "You're the luggage",
+    "You're luggage",
     "Get to the chopper!",
     "It's not a tumor!"
 ];

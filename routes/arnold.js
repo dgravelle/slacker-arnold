@@ -24,21 +24,22 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', tokenCheck, (req, res) => {
-    let response = {
-        'response_type': 'in_channel'
-    }
+    let response = {};
     let command = req.body.text;
     let arnoldSays;
 
     console.log();
     if (!command || command == 'help') {
+        // response.response_text = 'ephemeral'
         arnoldSays = commands['help'];
     }
     else {
+        response.response_type = 'in_channel';
         arnoldSays = randomQuote(commands[command]);
     }
 
-    res.status(200).json(arnoldSays);
+    response.text = arnoldSays;
+    res.status(200).json(response);
 })
 
 module.exports = router;
