@@ -7,6 +7,9 @@ const slackToken = process.env.SLACK_TOKEN;
 const commands = require('../commands');
 
 function tokenCheck(req, res, next) {
+    console.log('in');
+    console.log('looking for...',slackToken);
+    console.log(req.body.token);
     let token = req.body.token;
     if(!token || token !== slackToken) {
         res.status(401).send('Sorry, no token found. Try again with the right token ');
@@ -32,7 +35,6 @@ router.post('/', (req, res) => {
     let command = req.body.text;
     let arnoldSays;
 
-    console.log();
     if (!command || command == 'help') {
         response.response_text = 'ephemeral'
         arnoldSays = commands['help'];
