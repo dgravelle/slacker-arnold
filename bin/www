@@ -7,12 +7,12 @@
 var fs = require('fs');
 var app = require('../app');
 var debug = require('debug')('slacker-arnold:server');
-var http = require('http');
+var https = require('https');
 
-// var options = {
-//    key  : fs.readFileSync('server.key'),
-//    cert : fs.readFileSync('server.crt')
-// };
+var options = {
+   key  : fs.readFileSync('server.key'),
+   cert : fs.readFileSync('server.crt')
+};
 
 
 /**
@@ -26,8 +26,8 @@ app.set('port', port);
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
-// var server = http.createServer(options, app);
+// var server = http.createServer(app);
+var server = https.createServer(options, app);
 
 /**
  * Listen on provided port, on all network interfaces.
