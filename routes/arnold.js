@@ -1,3 +1,5 @@
+'use strict'
+
 require('dotenv').load();
 const express = require('express');
 const router = express.Router();

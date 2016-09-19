@@ -1,3 +1,5 @@
+'use strict'
+
 const fs = require('fs');
 
 const commands = fs.readdirSync(__dirname).reduce((a, file) => {
