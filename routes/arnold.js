@@ -26,14 +26,14 @@ router.use('/', tokenCheck);
 
 router.get('/', (req, res) => {
     res.status(200).send("I'll be back...");
-})
+});
 
 router.post('/', (req, res) => {
     let response = {};
     let command = req.body.text;
     let arnoldSays;
 
-    if (!command || command == 'help') {
+    if (!Object.keys(commands).includes(command) || command === 'help') {
         response.response_text = 'ephemeral'
         arnoldSays = commands['help'];
     }
@@ -44,6 +44,6 @@ router.post('/', (req, res) => {
 
     response.text = arnoldSays;
     res.status(200).json(response);
-})
+});
 
 module.exports = router;
